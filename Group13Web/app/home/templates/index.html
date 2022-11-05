@@ -1,0 +1,47 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} IMoney {% endblock title %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header card-header-success card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">description</i>
+          </div>
+          <img src="static/assets/img/LargeIcon.png" alt="icon" width="100%">
+        </div>
+        <div class="card-body ">
+          <div class="row">
+            <h3 class="card-title text-center">An extreme tool for financial information</h3>
+            <p class="card-category">I-Money system is created for individuals who are interested in stock markets.It provides some services for user to achieve stock related information. The services provided by the system can be customized by the users</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+  
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="/static/assets/js/plugins/jquery-jvectormap.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+      md.initVectorMap();
+
+    });
+  </script>
+
+{% endblock javascripts %}

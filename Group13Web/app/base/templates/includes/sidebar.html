@@ -1,0 +1,85 @@
+
+    <div class="sidebar" data-color="rose" data-background-color="black" data-image="/static/assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a target="_blank" rel="noopener noreferrer"
+            class="simple-text logo-normal text-center">
+          IMoney
+        </a></div>
+      <div class="sidebar-wrapper">
+        <div class="user">
+          <div class="photo">
+            <img src="/static/assets/img/faces/user_icon.png" />
+          </div>
+          <div class="user-info">
+            <a data-toggle="collapse" href="#collapseExample" class="username">
+              <span>
+                {{ current_user.username }}
+                <b class="caret"></b>
+              </span>
+            </a>
+            <div class="collapse" id="collapseExample">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/page-user.html">
+                    <span class="sidebar-mini"> MP </span>
+                    <span class="sidebar-normal"> My Profile </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('base_blueprint.logout') }}">
+                    <span class="sidebar-mini"> LO </span>
+                    <span class="sidebar-normal"> Logout </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="nav">
+          <li class="nav-item {% if 'index' in segment %} active {% endif %}">
+            <a class="nav-link" href="/">
+              <i class="material-icons">home</i>
+              <p> Home </p>
+            </a>
+          </li>
+           <li class="nav-item {% if 'page-service' in segment %} active {% endif %}">
+            <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
+              <i class="material-icons">home_repair_service</i>
+              <p> Services
+                <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse" id="pagesExamples">
+              <ul class="nav" >
+                {% for i in visibleservices %}
+                <li class="nav-item ">
+                  <a class="nav-link" href={{i[3]}}>
+                    <span class="sidebar-mini"> S{{i[0]}} </span>
+                    <span class="sidebar-normal"> {{i[1]}} </span>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item {% if 'page-setting' in segment %} active {% endif %}">
+            <a class="nav-link" href="/page-setting.html">
+              <i class="material-icons">settings_applications</i>
+              <p> Setting </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{ url_for('base_blueprint.logout') }}">
+              <i class="material-icons">directions_run</i>
+              <p> Logout </p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>

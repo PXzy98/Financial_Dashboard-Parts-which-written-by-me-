@@ -1,0 +1,139 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Setting {% endblock title %}
+
+<!-- Enable RTL support -->
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
+          </div>
+          <h4 class="card-title "> Service List</h4>
+        </div>
+          <div class="card-body table-hover">
+          <div class="table-responsive">
+            <table class="table stripped">
+              <thead class="text-primary table-info">
+                <th>
+                  ID
+                </th>
+                <th>
+                  Service Name
+                </th>
+              </thead>
+              <tbody>
+              {% for i in wholeList %}
+              <tr class="">
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+        </div>
+  </div>
+
+  <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
+          </div>
+          <h4 class="card-title "> Currently subscribed services</h4>
+        </div>
+        <div class="card-body table-hover">
+          <div class="table-responsive">
+            <table class="table stripped">
+              <thead class="text-primary table-info">
+                <th>
+                  ID
+                </th>
+                <th>
+                  Service Name
+                </th>
+              </thead>
+              <tbody>
+              {% for i in content %}
+              <tr class="">
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">settings</i>
+          </div>
+          <h4 class="card-title "> Operations</h4>
+        </div>
+          <div class="card-body" >
+            <div>
+        <div  >
+        <form action="/ReadremoveService" method="post" name="remove">
+            <label for="text">Remove a service:</label>
+            <select name = "selectedServiceRed" >
+                {% for i in selectedServiceRed %}
+                <option value={{i[0]}}">{{i[1]}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" name = "RemoveService" value="Remove" />
+        </form>
+        </div>
+        <div >
+        <form action="/ReadappendService" method="post" name="append">
+            <label for="text">Append a service:</label>
+            <select name = "selectedServiceAdd" >
+                {% for i in selectedServiceAdd %}
+                <option value={{i[0]}}">{{i[1]}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" name = "AppendService" value="Append" />
+        </form>
+        </div>
+    </div>
+          </div>
+
+
+
+        </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      md.checkFullPageBackgroundImage();
+    });
+
+
+  </script>
+
+
+{% endblock javascripts %}

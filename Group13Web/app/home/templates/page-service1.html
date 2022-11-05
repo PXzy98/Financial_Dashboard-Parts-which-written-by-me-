@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Service 1 {% endblock title %}
+
+<!-- Enable RTL support -->
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+      <div class="card">
+        <div class="card-header card-header-text card-header-warning">
+          <div class="card-text">
+            <h4 class="card-title">{{service1title}}</h4>
+
+          </div>
+          <p class="card-category">{{service1title}}</p>
+          <div class="card-body" >
+            <iframe id="mainIframe" name="mainIframe" src="{{service1url}}"  width=100% height=900 scrolling="auto"></iframe>
+
+          </div>
+
+        </div>
+
+        </div>
+      </div>
+
+
+{% endblock content %}
+
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      md.checkFullPageBackgroundImage();
+    });
+
+
+  </script>
+
+
+{% endblock javascripts %}

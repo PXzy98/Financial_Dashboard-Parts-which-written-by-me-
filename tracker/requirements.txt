@@ -1,0 +1,8 @@
+requests
+flask
+gevent
+gunicorn
+pandas
+matplotlib
+datetime
+yfinance
